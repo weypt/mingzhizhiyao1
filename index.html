@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明治制药 - 以制药匠心，守护全周期健康</title>
+    <style>
+        /* 全局样式重置与基础配置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+        }
+        body {
+            background-color: #f9f7f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* --- 新增：顶部导航栏样式 (替换您原有的top-nav) --- */
+        .top-nav {
+            background-color: #5a3e2b;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .top-nav .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .top-nav a:hover {
+            background-color: #d9b38c;
+            transform: translateY(-2px);
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .top-nav .container {
+                gap: 10px;
+            }
+            .top-nav a {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 1. 首屏品牌头图区 */
+        .hero-section {
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(120deg, #f9f7f5 0%, #f0ebe6 100%);
+            padding: 20px;
+            position: relative;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            color: #5a3e2b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #6b4b2e;
+            margin-bottom: 2rem;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #999;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* 2. 品牌核心背书区 */
+        .brand-benefit {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+        .benefit-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: #5a3e2b;
+        }
+        .benefit-item i {
+            font-size: 1.2rem;
+            color: #d9b38c;
+        }
+
+        /* 3. 全板块视觉导航区 */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2rem;
+            color: #5a3e2b;
+            font-weight: 600;
+        }
+        .nav-section {
+            padding: 20px 0 80px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .card-img {
+            height: 200px;
+            background-color: #f5f2ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            /* 可替换为实际图片，路径按GitHub规则配置 */
+            background-size: cover;
+            background-position: center;
+        }
+        /* 各板块卡片背景图（示例，你可替换为实际图片路径） */
+        .card-xinliu .card-img { background-image: url("images/xinliu.png"); }
+        .card-huanjing .card-img { background-image: url("images/huanjing.png"); }
+        .card-zhenfeng .card-img { background-image: url("images/zhenfeng.png"); }
+        .card-jizhi .card-img { background-image: url("images/jizhihuoli.png"); }
+        .card-yanxue .card-img { background-image: url("images/yanxue.png"); }
+
+        .card-content {
+            padding: 25px 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .card-desc {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .card-arrow {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            color: #d9b38c;
+        }
+
+        /* 4. 品牌理念区 */
+        .brand-idea {
+            padding: 60px 0;
+            background-color: #5a3e2b;
+            color: #fff;
+            text-align: center;
+        }
+        .brand-idea h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .brand-idea p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* 5. 底部通用信息区 */
+        .footer {
+            padding: 30px 0;
+            background-color: #f9f7f5;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .benefit-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .brand-idea h2 {
+                font-size: 1.5rem;
+            }
+            .brand-idea p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+        }
+    </style>
+    <!-- 引入图标库（简约线性图标） -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 (已根据您的结构重写) -->
+    <nav class="top-nav">
+        <div class="container">
+            <!-- 当前是总览页，链接到本页锚点 -->
+            <a href="#product">返回产品总览</a>
+            <!-- 指向各系列文件夹，使用绝对路径确保线上/线下一致 -->
+            <a href="./huanjing/">缓静系列</a>
+            <a href="./zhenfeng/">镇风系列</a>
+            <a href="./jizhihuoli/">极致活力</a>
+            <a href="./yanxue/">艳雪系列</a>
+        </div>
+    </nav>
+
+    <!-- 1. 首屏品牌头图区 -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>明治制药 - 以制药匠心，守护全周期健康</h1>
+            <p>心流·缓静·镇风·极致活力·艳雪 | 五大系列，精准适配身心需求</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i> 向下滚动查看全系列
+        </div>
+    </section>
+
+    <!-- 2. 品牌核心背书区 -->
+    <section class="brand-benefit">
+        <div class="container">
+            <div class="benefit-list">
+                <div class="benefit-item">
+                    <i class="fas fa-award"></i>
+                    <span>70余年制药历史 | 1976年GMP认证</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>日本富山出品 | 严苛原料检测</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-percentage"></i>
+                    <span>99.5%+高纯度成分 | 无有害杂质</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-flask"></i>
+                    <span>科学配方研发 | 主动健康管理</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 全板块视觉导航区 -->
+    <section class="nav-section">
+        <div class="container">
+            <h2 class="section-title">五大核心系列</h2>
+            <div class="card-container">
+                <!-- 心流板块 -->
+                <a href="./xinliu/" class="product-card card-xinliu">
+                    <div class="card-img">心流系列视觉图</div>
+                    <div class="card-content">
+                        <h3 class="card-title">心流</h3>
+                        <p class="card-desc">专注身心专注度，提升思维流畅性，焕活大脑活力</p>
+                        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- 缓静板块 -->
+                <a href="./huanjing/" class="product-card card-huanjing">
+                    <div class="card-img">缓静系列视觉图</div>
+                    <div class="card-content">
+                        <h3 class="card-title">缓静</h3>
+                        <p class="card-desc">舒缓情绪焦虑，调节身心节律，回归平和状态</p>
+                        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- 镇风板块 -->
+                <a href="./zhenfeng/" class="product-card card-zhenfeng">
+                    <div class="card-img">镇风系列视觉图</div>
+                    <div class="card-content">
+                        <h3 class="card-title">镇风</h3>
+                        <p class="card-desc">维稳身体内环境，缓解不适症状，增强适应能力</p>
+                        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- 极致活力板块 -->
+                <a href="./jizhihuoli/" class="product-card card-jizhi">
+                    <div class="card-img">极致活力系列视觉图</div>
+                    <div class="card-content">
+                        <h3 class="card-title">极致活力</h3>
+                        <p class="card-desc">NMN赋能，激活长寿基因，焕活全身身心能量</p>
+                        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- 艳雪板块 -->
+                <a href="./yanxue/" class="product-card card-yanxue">
+                    <div class="card-img">艳雪系列视觉图</div>
+                    <div class="card-content">
+                        <h3 class="card-title">艳雪</h3>
+                        <p class="card-desc">抗氧化·美白淡斑·焕亮肌肤，还原通透美肌</p>
+                        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 品牌理念区 -->
+    <section class="brand-idea">
+        <div class="container">
+            <h2>为了明天的健康而努力</h2>
+            <p>从肌肤焕亮到身心赋能，明治制药以70余年制药匠心，打造科学、安全、有效的健康解决方案，陪伴你的每一个健康时刻</p>
+        </div>
+    </section>
+
+    <!-- 5. 底部通用信息区 -->
+    <footer class="footer">
+        <div class="container">
+            <p>明治制药株式会社 | GMP认证 | 日本富山出品</p>
+            <p>本产品为膳食补充剂，不能替代药物 | 请按说明服用</p>
+            <p>©2025 明治制药 版权所有</p>
+        </div>
+    </footer>
+</body>
+</html>

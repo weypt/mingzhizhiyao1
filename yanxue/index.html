@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明治制药艳雪 - 由内而外，还原你的明艳通透</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        /* 全局样式 */
+        body {
+            color: #333;
+            background-color: #f9f7f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 60px 0;
+        }
+        h2 {
+            font-size: 2.2rem;
+            color: #5a3e2b;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #d9b38c;
+            margin: 15px auto 0;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #6b4b2e;
+            margin: 25px 0 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #d9b38c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #c4986d;
+            transform: translateY(-2px);
+        }
+        .text-center {
+            text-align: center;
+        }
+        /* 图片通用样式 */
+        .img-box {
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .img-box img:hover {
+            transform: scale(1.02);
+        }
+        .img-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b4b2e;
+            margin-top: 10px;
+        }
+        /* 首屏Banner */
+        .banner {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url("https://picsum.photos/id/21/1920/600") center/cover no-repeat;
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .banner h1 {
+            font-size: 3rem;
+            color: #5a3e2b;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 1.2rem;
+            color: #6b4b2e;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        /* 肌肤痛点区 */
+        .pain-point {
+            background-color: #fff;
+        }
+        .pain-point .content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        .pain-point ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .pain-point li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0e8e0;
+            color: #555;
+        }
+        /* 品牌信任区 */
+        .brand {
+            background-color: #fffaf5;
+        }
+        .brand-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        .brand-card .cert {
+            color: #d9b38c;
+            font-weight: 600;
+        }
+        /* 成分解析区 */
+        .ingredients {
+            background-color: #fff;
+        }
+        .ingredient-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .ingredient-item {
+            background-color: #fffaf5;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .ingredient-item:hover {
+            transform: translateY(-5px);
+        }
+        .ingredient-item h4 {
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .ingredient-item .img-box {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+        /* 实验验证区 */
+        .experiment {
+            background-color: #fffaf5;
+        }
+        .experiment-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .experiment-table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .experiment-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .experiment-table th, .experiment-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0e8e0;
+        }
+        .experiment-table th {
+            background-color: #f9f5f1;
+            color: #5a3e2b;
+        }
+        /* 产品信息区 */
+        .product-info {
+            background-color: #fff;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .product-main-img {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .info-item ul {
+            list-style: none;
+        }
+        .info-item li {
+            padding: 8px 0;
+            color: #555;
+        }
+        .info-item li span {
+            font-weight: 600;
+            color: #6b4b2e;
+        }
+        /* 用户反馈区 */
+        .feedback {
+            background-color: #fffaf5;
+        }
+        .feedback-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .feedback-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        .feedback-item .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .feedback-item .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .feedback-item p {
+            font-style: italic;
+            color: #555;
+        }
+        /* 页脚 */
+        footer {
+            background-color: #5a3e2b;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 2.2rem;
+            }
+            .banner p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            section {
+                padding: 40px 0;
+            }
+            .pain-point .content, .brand-card, .experiment-content {
+                grid-template-columns: 1fr;
+            }
+            .feedback-item {
+                grid-template-columns: 60px 1fr;
+            }
+            .feedback-item .avatar {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 新增顶部导航模块 -->
+<!-- 顶部导航模块 -->
+    <nav class="nav-bar">
+        <div class="container nav-content">
+            <a href="./" class="nav-logo">
+                <!-- 如果根目录有logo图片，请替换src为实际路径，如“/logo.png” -->
+                <img src="../images/yanxue.png" alt="明治制药 Logo" class="logo-icon" style="height: 24px; vertical-align: middle; margin-right: 8px;">
+                明治制药 - 艳雪系列
+            </a>
+            <div class="nav-menu">
+                <a href="./">返回产品总览</a> <!-- 指向根目录总览页 -->
+                <a href="../xinliu/">心流系列</a>
+                <a href="../huanjing/">缓静系列</a>
+                <a href="../zhenfeng/">镇风系列</a>
+                <a href="../jizhihuoli/">极致活力</a>
+                <a href="#product">艳雪系列</a> <!-- 指向本页锚点，无需跳转 -->
+            </div>
+        </div>
+    </nav>
+    <style>
+        /* 导航栏样式 */
+        .nav-bar {
+            background-color: #5a3e2b;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-bar .container.nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo:hover {
+            opacity: 0.9;
+        }
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .nav-menu a:hover {
+            background-color: #d9b38c;
+            transform: translateY(-2px);
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-bar .container.nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-menu {
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-menu a {
+                padding: 5px 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+    <!-- 首屏Banner区 - 已替换日系清新背景图 -->
+    <header class="banner">
+        <div class="container">
+            <h1>明治制药艳雪</h1>
+            <p>还原你的年轻美丽 还你明艳通透 | 由内而外的美肌养护，制药级品质守护你的优雅</p>
+            <a href="#product" class="btn">了解更多</a>
+        </div>
+    </header>
+
+    <!-- 肌肤痛点共鸣区 - 已替换肌肤问题示意图 -->
+    <section class="pain-point" id="pain">
+        <div class="container">
+            <h2>你是否也有这些肌肤烦恼？</h2>
+            <div class="content">
+                <div>
+                    <p>当代女性面临工作压力、作息不规律、环境刺激等问题，肌肤极易出现氧化、暗沉、蜡黄、长斑、衰老等问题。很多人只依赖外用护肤品或医美，却忽略了“由内而外”的根本养护，收效甚微。</p>
+                    <ul>
+                        <li>✅ 肌肤暗沉蜡黄，失去通透感</li>
+                        <li>✅ 色斑、痘印难以淡化</li>
+                        <li>✅ 细纹增多，肌肤失去弹性</li>
+                        <li>✅ 换季易敏感、发炎长痘</li>
+                        <li>✅ 精力差，整个人状态疲惫显老</li>
+                    </ul>
+                    <p>其实，这些问题的核心是肌肤氧化和黑色素沉积。明治制药艳雪，直击根源，用制药级配方帮你解决这些烦恼。</p>
+                </div>
+                <div class="img-box">
+                    <img src="skin oxide.png" alt="肌肤问题对比图" loading="lazy">
+                    <p class="img-caption">肌肤氧化前后对比示意</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌信任背书区 - 已替换制药认证类配图 -->
+    <section class="brand" id="brand">
+        <div class="container">
+            <h2>70年制药级品牌，值得信赖</h2>
+            <div class="brand-card">
+                <div>
+                    <p>明治制药成立于昭和26年，拥有70多年专业制药历史，1976年通过<span class="cert">GMP认证</span>，建立了完整科学的质量管理体系。</p>
+                    <p>品牌始终秉持“为了明天的健康而努力”的宗旨，所有产品均经过严格的原料检测和第三方多重检测，以制药级的严苛标准，保障产品的安全性与有效性。</p>
+                    <p>选择明治制药，就是选择专业、安全、有效的美肌守护。</p>
+                </div>
+                <div class="img-box">
+                    <img src="company.png" alt="明治制药GMP认证" loading="lazy">
+                    <p class="img-caption">明治制药GMP认证制药标准</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品核心机理区 -->
+    <section class="mechanism" id="mechanism">
+        <div class="container text-center">
+            <h2>艳雪的美肌秘密</h2>
+            <p>科学配方，双管齐下对抗肌肤问题</p>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p>明治制药艳雪核心逻辑：<strong>抗氧化+美白</strong>。抗氧化清除体内自由基，从根源减少肌肤损伤；美白抑制黑色素生成，让肌肤恢复通透亮白。内外兼修，实现真正的美肌效果。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心成分解析区 - 已全部替换成分适配配图 -->
+    <section class="ingredients" id="ingredients">
+        <div class="container">
+            <h2>黄金配方组合</h2>
+            <p class="text-center">每一种成分，都为女性美肌而生</p>
+            <div class="ingredient-list">
+                <div class="ingredient-item">
+                    <div class="img-box">
+                        <img src="L.png" alt="L-胱氨酸" loading="lazy">
+                    </div>
+                    <h4>L-胱氨酸</h4>
+                    <p>核心功效：美肤美白，帮助改善肌肤状态；同时强韧秀发、亮泽指甲，由内而外提升整体状态。</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="img-box">
+                        <img src="cere.png" alt="Cerepron®" loading="lazy">
+                    </div>
+                    <h4>Cerepron®</h4>
+                    <p>日本Pharma Foods研发的可食用美白原料，提取自面包酵母精华。</p>
+                    <p>核心功效：抑制黑色素生成、辅助防晒、保湿锁水，安全无刺激，经实验验证有效。</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="img-box">
+                        <img src="NMN.png" alt="NMN" loading="lazy">
+                    </div>
+                    <h4>NMN</h4>
+                    <p>核心功效：抗衰修复，改善肌肤衰老状态；同时提升精力、改善睡眠，让整个人更有活力。</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="img-box">
+                        <img src="VE.png" alt="维生素E+VC" loading="lazy">
+                    </div>
+                    <h4>维生素E + 维生素C</h4>
+                    <p>核心功效：双重抗氧化，清除自由基；辅助美白提亮，提升免疫力，守护肌肤与身体健康。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 实验验证区 - 已替换实验数据配图 -->
+    <section class="experiment" id="experiment">
+        <div class="container">
+            <h2>制药级实验验证，效果看得见</h2>
+            <div class="experiment-content">
+                <div class="experiment-table">
+                    <table>
+                        <tr>
+                            <th>实验项目</th>
+                            <th>核心结果</th>
+                        </tr>
+                        <tr>
+                            <td>黑色素合成抑制实验</td>
+                            <td>有效抑制酪氨酸遗传因子，减少黑色素生成</td>
+                        </tr>
+                        <tr>
+                            <td>8周肌肤光亮度测试（二重盲检法）</td>
+                            <td>肌肤光亮度提升1.6%，通透感显著改善</td>
+                        </tr>
+                        <tr>
+                            <td>肌肤修复实验</td>
+                            <td>有效修复损伤皮肤，提升肌肤屏障能力</td>
+                        </tr>
+                        <tr>
+                            <td>保湿锁水实验</td>
+                            <td>提升肌肤含水量，长效锁水，改善干燥</td>
+                        </tr>
+                        <tr>
+                            <td>安全性实验</td>
+                            <td>无刺激、无副作用，安全可长期服用</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="img-box">
+                    <img src="DOUBLE blind.png" alt="8周肌肤光亮度测试数据" loading="lazy">
+                    <p class="img-caption">8周肌肤光亮度测试（二重盲检法）</p>
+                </div>
+            </div>
+            <p class="text-center" style="margin-top: 20px;">L-胱氨酸+ Cerepron®协同作用，实现抗氧化+抑制黑色素的双重美白抗衰效果。</p>
+        </div>
+    </section>
+
+    <!-- 产品基础信息区 - 【唯一需要你替换的产品主图位置】标注清晰 -->
+    <section class="product-info" id="product">
+        <div class="container">
+            <h2>产品基础信息</h2>
+            <!-- 【★★★唯一替换位★★★】此处替换为你的PDF产品主图 -->
+            <div class="product-main-img img-box">
+                <img src="product picture.png" alt="明治制药艳雪产品实物" loading="lazy">
+                <p class="img-caption">明治制药艳雪产品实拍</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>基本参数</h3>
+                    <ul>
+                        <li><span>商品名：</span>明治制药艳雪</li>
+                        <li><span>内容量：</span>33.48g（372mg×90粒）</li>
+                        <li><span>保质期：</span>3年</li>
+                        <li><span>服用方法：</span>每日3粒，温水送服</li>
+                    </ul>
+                </div>
+                <div class="info-item">
+                    <h3>适用人群</h3>
+                    <ul>
+                        <li>✅ 皮肤易发炎、长斑、长痘问题多的女性</li>
+                        <li>✅ 皮肤衰老快、皱纹深的女性</li>
+                        <li>✅ 肤色不均、蜡黄暗沉的女性</li>
+                        <li>✅ 精力体力差、易疲惫的女性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户反馈区 - 已替换用户头像和效果对比图 -->
+    <section class="feedback" id="feedback">
+        <div class="container">
+            <h2>真实用户反馈</h2>
+            <div class="feedback-list">
+                <div class="feedback-item">
+                    <div class="avatar">
+                        <img src="https://picsum.photos/id/64/80/80" alt="用户头像1" loading="lazy">
+                    </div>
+                    <div>
+                        <p>“服用2个月，最明显的变化是肌肤不那么暗沉了，素颜也有通透感，眼角的细纹也淡了一些，整个人看起来有精神多了。” —— 32岁 职场女性</p>
+                    </div>
+                </div>
+                <div class="feedback-item">
+                    <div class="avatar">
+                        <img src="https://picsum.photos/id/65/80/80" alt="用户头像2" loading="lazy">
+                    </div>
+                    <div>
+                        <p>“之前换季就长痘发炎，吃了艳雪之后，肌肤稳定了很多，斑也淡了一点，睡眠质量也变好了，终于不用顶着疲惫的脸上班了。” —— 28岁 全职妈妈</p>
+                    </div>
+                </div>
+                <div class="feedback-item">
+                    <div class="avatar">
+                        <img src="https://picsum.photos/id/66/80/80" alt="用户头像3" loading="lazy">
+                    </div>
+                    <div>
+                        <p>“坚持吃了3个月，不仅皮肤亮了，头发也不怎么掉了，指甲也变韧了，由内而外的改变，比涂多少护肤品都管用。” —— 35岁 教师</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 已替换用户效果对比图 -->
+            <div class="img-box" style="max-width: 800px; margin: 30px auto 0;">
+                <img src="comparation.png" alt="用户使用前后对比" loading="lazy">
+                <p class="img-caption">用户使用明治制药艳雪3个月前后对比（经用户授权展示）</p>
+            </div>
+            <div class="text-center">
+                <p>先爱自己，再爱一切。明治制药艳雪，呵护每一位女性的美丽与健康。</p>
+                <a href="#" class="btn">立即咨询</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>© 2025 明治制药 版权所有 | 制药级品质 守护女性美丽</p>
+        </div>
+    </footer>
+</body>
+</html>

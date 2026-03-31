@@ -1,0 +1,767 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明治制药 镇风 - 降低尿酸值 · 10000mg NMN抗衰</title>
+    <style>
+        /* 全局样式（与心流、缓静完全一致，保证品牌视觉统一） */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+        }
+        body {
+            background-color: #f9f7f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* 导航栏（全系列跳转，与心流、缓静一致） */
+        .nav-bar {
+            background-color: #5a3e2b;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .nav-menu a {
+            color: #fff;
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover {
+            color: #d9b38c;
+        }
+
+        /* 1. 首屏Banner区（1张主视觉图） */
+        .hero-section {
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("4.png");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        .hero-content .tag {
+            display: inline-block;
+            background-color: #d9b38c;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            color: #5a3e2b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #6b4b2e;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero-btn {
+            display: inline-block;
+            background-color: #5a3e2b;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+        .hero-btn:hover {
+            background-color: #6b4b2e;
+        }
+
+        /* 2. 痛点共鸣区（3张场景/数据图） */
+        .pain-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #5a3e2b;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .pain-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .pain-img {
+            width: 100%;
+            height: 220px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .pain-img1 { background-image: url("2.png"); background-size: cover; background-position: center; }
+        .pain-img2 { background-image: url("3.png"); background-size: cover; background-position: center; }
+        .pain-img3 { background-image: url("1.png"); background-size: cover; background-position: center; }
+        .pain-title {
+            font-size: 1.3rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .pain-desc {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* 3. 核心配方区（3张成分图+1张产品图） */
+        .formula-section {
+            padding: 80px 0;
+        }
+        .product-main-img {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            margin: 0 auto 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            background-image: url("4.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .formula-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .formula-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f5f2ee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .formula-img1 { background-image: url("5.png"); background-size: cover; background-position: center; }
+        .formula-img2 { background-image: url("6.png"); background-size: cover; background-position: center; }
+        .formula-img3 { background-image: url("7.png"); background-size: cover; background-position: center; }
+        .formula-title {
+            font-size: 1.2rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .formula-highlight {
+            color: #d9b38c;
+            font-weight: 700;
+        }
+        .formula-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* 4. 科学试验背书区（4张试验图表+1张权威认证图） */
+        .test-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .test-card {
+            background-color: #f9f7f5;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .test-img {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f2ee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .test-img1 { background-image: url("8.png"); background-size: cover; background-position: center; }
+        .test-img2 { background-image: url("9.png"); background-size: cover; background-position: center; }
+        .test-img3 { background-image: url("10.png"); background-size: cover; background-position: center; }
+        .test-img4 { background-image: url("11.png"); background-size: cover; background-position: center; }
+        .test-title {
+            font-size: 1.1rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .test-conclusion {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+
+        /* 5. 产品细节区（3张细节图） */
+        .detail-section {
+            padding: 80px 0;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .detail-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .detail-img {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f2ee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .detail-img1 { background-image: url("12.png"); background-size: cover; background-position: center; }
+        .detail-img2 { background-image: url("7.png"); background-size: cover; background-position: center; }
+        .detail-img3 { background-image: url("13.png"); background-size: cover; background-position: center; }
+        .detail-title {
+            font-size: 1.1rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .detail-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* 6. 用户场景+媒体背书区（3张场景图+2张媒体图） */
+        .scene-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .scene-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .scene-card {
+            background-color: #f9f7f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .scene-img {
+            width: 100%;
+            height: 150px;
+            background-color: #f5f2ee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .scene-img1 { background-image: url("14.png"); background-size: cover; background-position: center; }
+        .scene-img2 { background-image: url("15.png"); background-size: cover; background-position: center; }
+        .scene-img3 { background-image: url("16.png"); background-size: cover; background-position: center; }
+        .scene-desc {
+            font-size: 0.9rem;
+            color: #5a3e2b;
+        }
+        .media-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .media-card {
+            background-color: #f9f7f5;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .media-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f5f2ee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .media-img1 { background-image: url("17.png"); background-size: cover; background-position: center; }
+        .media-img2 { background-image: url("18.png"); background-size: cover; background-position: center; }
+        .media-title {
+            font-size: 0.95rem;
+            color: #5a3e2b;
+            font-weight: 600;
+        }
+
+        /* 7. 产品信息+转化区（1张规格对比图） */
+        .info-section {
+            padding: 80px 0;
+        }
+        .info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .info-list {
+            list-style: none;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .info-list li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f5f2ee;
+        }
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        .info-list li span {
+            color: #5a3e2b;
+            font-weight: 600;
+        }
+        .spec-img {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            background-image: url("19.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .convert-btn {
+            display: block;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #d9b38c;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            margin: 40px auto 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .convert-btn:hover {
+            background-color: #c4986d;
+        }
+
+        /* 底部区 */
+        .footer {
+            padding: 40px 0;
+            background-color: #5a3e2b;
+            color: #fff;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 移动端适配（与心流、缓静一致） */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            .pain-grid, .formula-grid, .test-grid, .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .scene-container {
+                grid-template-columns: 1fr;
+            }
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+            .spec-img {
+                height: 200px;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .nav-content {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏：全系列互相跳转（加在<body>最顶部） -->
+    <!-- 顶部导航模块 -->
+<nav class="nav-bar">
+    <div class="container nav-content">
+        <a href="./" class="nav-logo">
+            <!-- 如果根目录有logo图片，请替换src为实际路径，如“/logo.png” -->
+            <img src="../images/zhenfeng.png" alt="明治制药 Logo" class="logo-icon" style="height: 24px; vertical-align: middle; margin-right: 8px;">
+            明治制药 - [镇风] <!-- 请替换[系列名称] -->
+        </a>
+        <div class="nav-menu">
+            <a href="./">返回产品总览</a> <!-- 指向根目录总览页 -->
+            <a href="../xinliu/">心流系列</a>
+            <a href="../huanjing/">缓静系列</a>
+            <a href="../zhenfeng/">镇风系列</a>
+            <a href="../jizhihuoli/">极致活力</a>
+            <a href="../yanxue/">艳雪系列</a>
+        </div>
+    </div>
+</nav>
+<style>
+    /* 导航栏样式 */
+    .nav-bar {
+        background-color: #5a3e2b;
+        padding: 12px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-bar .container.nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .nav-logo {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+    .nav-logo:hover {
+        opacity: 0.9;
+    }
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-menu a:hover {
+        background-color: #d9b38c;
+        transform: translateY(-2px);
+    }
+    /* 响应式适配 */
+    @media (max-width: 768px) {
+        .nav-bar .container.nav-content {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .nav-menu {
+            justify-content: center;
+            gap: 10px;
+        }
+        .nav-menu a {
+            padding: 5px 10px;
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+    <!-- 1. 首屏Banner区（1张主视觉图） -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="tag">机能性表示食品</span>
+            <h1>明治制药 镇风</h1>
+            <p>降低尿酸值 · 强化肝脏机能 · 10000mg NMN抗衰 · 80年制药匠心守护代谢健康</p>
+            <a href="#formula" class="hero-btn">了解核心配方</a>
+        </div>
+    </section>
+
+    <!-- 2. 痛点共鸣区（3张场景/数据图） -->
+    <section class="pain-section">
+        <div class="container">
+            <h2 class="section-title">500万高危人群！高尿酸的隐形风险</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-img pain-img1">痛风风险示意图</div>
+                    <h3 class="pain-title">痛风与高尿酸隐患</h3>
+                    <p class="pain-desc">日本痛风患者约100万人，高危人群达500万，尿酸值超标易引发痛风、肾结石、肾不全等并发症</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-img pain-img2">高嘌呤食物示意图</div>
+                    <h3 class="pain-title">饮食嘌呤困境</h3>
+                    <p class="pain-desc">啤酒、动物内脏、海鲜等常见食物嘌呤含量高，一次聚会摄入嘌呤易超每日400mg推荐量</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-img pain-img3"></div>
+                    <h3 class="pain-title">食物中尿酸通常较高</h3>
+                    <p class="pain-desc">如果尿酸数值超过7.0mg/dL的话则被称为高尿酸值的状态。这个状态被称为「高尿酸血症」。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 核心配方区（3张成分图+1张产品图） -->
+    <section class="formula-section" id="formula">
+        <div class="container">
+            <h2 class="section-title">三重黄金配方，降尿酸+护肝脏+抗衰三效协同</h2>
+            <div class="product-main-img">镇风产品实物图</div>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <div class="formula-img formula-img1">菊花由来木犀草素示意图</div>
+                    <h3 class="formula-title">菊花由来木犀草素</h3>
+                    <p class="formula-desc"><span class="formula-highlight">机能性表示食品认证</span>，抑制黄嘌呤氧化酶活性，减少尿酸生成并促进排泄，针对性降低5.5-7.0mg/dL男性尿酸值</p>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-img formula-img2">西兰花芽提取物图</div>
+                    <h3 class="formula-title">西兰花芽提取物</h3>
+                    <p class="formula-desc">富含萝卜硫素，强化肝脏解毒机能，促进嘌呤代谢，从源头改善尿酸排泄不畅问题</p>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-img formula-img3">NMN分子结构图</div>
+                    <h3 class="formula-title">NMN（10000mg）</h3>
+                    <p class="formula-desc"><span class="formula-highlight">10000mg高含量</span>，激活长寿基因，延缓肝脏、肾脏等代谢器官衰老，降尿酸同时兼顾抗衰</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 科学试验背书区（4张试验图表+1张权威认证图） -->
+    <section class="test-section">
+        <div class="container">
+            <h2 class="section-title">人体试验验证，降尿酸功效有迹可循</h2>
+            <div class="test-grid">
+                <div class="test-card">
+                    <div class="test-img test-img1">尿酸值降低曲线图</div>
+                    <h3 class="test-title">木犀草素降尿酸试验</h3>
+                    <p class="test-conclusion">每日摄入10mg木犀草素，4周后尿酸值5.5-7.0mg/dL的男性，尿酸值较对照组显著降低</p>
+                </div>
+                <div class="test-card">
+                    <div class="test-img test-img2">黄嘌呤氧化酶抑制试验图</div>
+                    <h3 class="test-title">尿酸生成抑制试验</h3>
+                    <p class="test-conclusion">菊花提取物在3-100μg/mL浓度下，可有效抑制黄嘌呤氧化酶活性，阻断尿酸生成路径</p>
+                </div>
+                <div class="test-card">
+                    <div class="test-img test-img3">肝脏机能改善试验图</div>
+                    <h3 class="test-title">西兰花芽护肝功能试验</h3>
+                    <p class="test-conclusion">萝卜硫素可提升肝脏解毒酶活性30%，促进嘌呤分解代谢，改善尿酸排泄效率</p>
+                </div>
+                <div class="test-card">
+                    <div class="test-img test-img4">NMN代谢路径图</div>
+                    <h3 class="test-title">NMN抗衰协同试验</h3>
+                    <p class="test-conclusion">NMN转化为NAD+后，可改善肾脏血流，提升尿酸排泄能力，与降尿酸成分形成协同效果</p>
+                </div>
+            </div>
+            <div class="cert-img">GMP认证+机能性表示食品认证组合图</div>
+        </div>
+    </section>
+
+    <!-- 5. 产品细节区（3张细节图） -->
+    <section class="detail-section">
+        <div class="container">
+            <h2 class="section-title">制药级品质，从原料到成品的严苛把控</h2>
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <div class="detail-img detail-img1"></div>
+                    <h3 class="detail-title">跨时代成分。
+
+</h3>
+                    <p class="detail-desc">NMN在体内被吸收后会通过血液被全身的细胞所包裹、从而转化成NAD。
+
+</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-img detail-img2">原料实拍图</div>
+                    <h3 class="detail-title">高纯度原料</h3>
+                    <p class="detail-desc">99.5%高纯度菊花提取物+西兰花芽提取物，无添加香精、色素，制药级原料标准</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-img detail-img3">工厂车间示意图</div>
+                    <h3 class="detail-title">医药品级生产</h3>
+                    <p class="detail-desc">日本富山医药品级工厂生产，符合GMP严格认证，生产环境万级无尘，品质可控</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 用户场景+媒体背书区（3张场景图+2张媒体图） -->
+    <section class="scene-section">
+        <div class="container">
+            <h2 class="section-title">备受认可的降尿酸抗衰选择</h2>
+            <div class="scene-container">
+                <div class="scene-grid">
+                    <div class="scene-card">
+                        <div class="scene-img scene-img1">职场应酬饮酒场景</div>
+                        <p class="scene-desc">应酬饮酒无惧嘌呤，尿酸值稳定不飙升</p>
+                    </div>
+                    <div class="scene-card">
+                        <div class="scene-img scene-img2">中老年日常饮食场景</div>
+                        <p class="scene-desc">日常饮食养护，远离痛风困扰</p>
+                    </div>
+                    <div class="scene-card">
+                        <div class="scene-img scene-img3">高嘌呤食物爱好者场景</div>
+                        <p class="scene-desc">爱吃海鲜内脏不忌口，降尿酸抗衰两不误</p>
+                    </div>
+                </div>
+                <div class="media-grid">
+                    <div class="media-card">
+                        <div class="media-img media-img1">羽鸟慎一早间秀报道截图</div>
+                        <h3 class="media-title">羽鸟慎一早间秀专题报道</h3>
+                    </div>
+                    <div class="media-card">
+                        <div class="media-img media-img2">长嶋一茂未来学院报道截图</div>
+                        <h3 class="media-title">长嶋一茂未来学院推荐</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 产品信息+转化区（1张规格对比图） -->
+    <section class="info-section">
+        <div class="container">
+            <h2 class="section-title">产品基础信息，科学服用更有效</h2>
+            <div class="info-container">
+                <ul class="info-list">
+                    <li>商品名：<span>明治制药 镇风</span></li>
+                    <li>内容量：<span>22.32g（372mg×60粒）</span></li>
+                    <li>每日服用量：<span>2粒，温水送服</span></li>
+                    <li>机能性成分含量：<span>10mg/每日剂量（木犀草素）</span></li>
+                    <li>NMN含量：<span>333mg/每日剂量（总计10000mg）</span></li>
+                    <li>保质期：<span>3年</span></li>
+                    <li>储存方式：<span>密封，阴凉干燥处保存</span></li>
+                    <li>适用人群：<span>40-70岁高尿酸（5.5-7.0mg/dL）男性</span></li>
+                </ul>
+                <div class="spec-img">每日成分含量规格对比图</div>
+            </div>
+            <a href="#" class="convert-btn">立即咨询</a>
+        </div>
+    </section>
+
+    <!-- 底部区 -->
+    <footer class="footer">
+        <div class="container">
+            <p>明治制药株式会社 | 机能性表示食品 | GMP认证</p>
+            <p>本产品不能替代药物治疗 | 痛风患者/肝肾功能不全者请遵医嘱服用</p>
+            <p>©2025 明治制药 版权所有</p>
+        </div>
+    </footer>
+</body>
+</html>

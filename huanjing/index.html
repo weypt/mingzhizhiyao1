@@ -1,0 +1,777 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明治制药 缓静 - 抑制餐后血糖 · 10000mg NMN抗衰</title>
+    <style>
+        /* 全局样式（与心流完全一致，保证品牌视觉统一） */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+        }
+        body {
+            background-color: #f9f7f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* 导航栏（全系列跳转，与心流/艳雪一致） */
+        .nav-bar {
+            background-color: #5a3e2b;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .nav-menu a {
+            color: #fff;
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover {
+            color: #d9b38c;
+        }
+
+        /* 1. 首屏Banner区（1张主视觉图） */
+        .hero-section {
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("1.png");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        .hero-content .tag {
+            display: inline-block;
+            background-color: #d9b38c;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            color: #5a3e2b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #6b4b2e;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero-btn {
+            display: inline-block;
+            background-color: #5a3e2b;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+        .hero-btn:hover {
+            background-color: #6b4b2e;
+        }
+
+        /* 2. 痛点共鸣区（3张场景/数据图） */
+        .pain-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #5a3e2b;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .pain-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .pain-img {
+            width: 100%;
+            height: 220px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .pain-img1 { background-image: url("gxt.png"); background-size: cover; background-position: center; }
+        .pain-img2 { background-image: url("bread.png"); background-size: cover; background-position: center; }
+        .pain-img3 { background-image: url("pain3.png"); background-size: cover; background-position: center; }
+        .pain-title {
+            font-size: 1.3rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .pain-desc {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* 3. 核心配方区（3张成分图+1张产品图） */
+        .formula-section {
+            padding: 80px 0;
+        }
+        .product-main-img {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            margin: 0 auto 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            background-image: url("swt.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .formula-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .formula-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f5f2ee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .formula-img1 { background-image: url("sy.png"); background-size: cover; background-position: center; }
+        .formula-img2 { background-image: url("hc.png"); background-size: cover; background-position: center; }
+        .formula-img3 { background-image: url("nmn.png"); background-size: cover; background-position: center; }
+        .formula-title {
+            font-size: 1.2rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .formula-highlight {
+            color: #d9b38c;
+            font-weight: 700;
+        }
+        .formula-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* 4. 科学试验背书区（4张试验图+1张认证图） */
+        .test-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .test-card {
+            background-color: #f9f7f5;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .test-img {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f2ee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .test-img1 { background-image: url("syt.png"); background-size: cover; background-position: center; }
+        .test-img2 { background-image: url("hct.png"); background-size: cover; background-position: center; }
+        .test-img3 { background-image: url("syxs.png"); background-size: cover; background-position: center; }
+        .test-img4 { background-image: url("5ala.png"); background-size: cover; background-position: center; }
+        .test-title {
+            font-size: 1.1rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .test-conclusion {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .cert-img {
+            width: 100%;
+            max-width: 800px;
+            height: 150px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            background-image: url("gcgp.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 5. 产品细节区（3张细节图） */
+        .detail-section {
+            padding: 80px 0;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .detail-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .detail-img {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f2ee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .detail-img1 { background-image: url("gcgp.png"); background-size: cover; background-position: center; }
+        .detail-img2 { background-image: url("nmn.png"); background-size: cover; background-position: center; }
+        .detail-img3 { background-image: url("yypj.png"); background-size: cover; background-position: center; }
+        .detail-title {
+            font-size: 1.1rem;
+            color: #5a3e2b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .detail-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* 6. 用户场景+媒体背书区（3张场景图+2张媒体图） */
+        .scene-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .scene-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .scene-card {
+            background-color: #f9f7f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .scene-img {
+            width: 100%;
+            height: 150px;
+            background-color: #f5f2ee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .scene-img1 { background-image: url("ycwj.png"); background-size: cover; background-position: center; }
+        .scene-img2 { background-image: url("rckt.png"); background-size: cover; background-position: center; }
+        .scene-img3 { background-image: url("acts.png"); background-size: cover; background-position: center; }
+        .scene-desc {
+            font-size: 0.9rem;
+            color: #5a3e2b;
+        }
+        .media-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .media-card {
+            background-color: #f9f7f5;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .media-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f5f2ee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .media-img1 { background-image: url("ynsy.png"); background-size: cover; background-position: center; }
+        .media-img2 { background-image: url("wlxy.png"); background-size: cover; background-position: center; }
+        .media-title {
+            font-size: 0.95rem;
+            color: #5a3e2b;
+            font-weight: 600;
+        }
+
+        /* 7. 产品信息+转化区（1张规格对比图） */
+        .info-section {
+            padding: 80px 0;
+        }
+        .info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .info-list {
+            list-style: none;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .info-list li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f5f2ee;
+        }
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        .info-list li span {
+            color: #5a3e2b;
+            font-weight: 600;
+        }
+        .spec-img {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f2ee;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            background-image: url("1.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .convert-btn {
+            display: block;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #d9b38c;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            margin: 40px auto 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .convert-btn:hover {
+            background-color: #c4986d;
+        }
+
+        /* 底部区 */
+        .footer {
+            padding: 40px 0;
+            background-color: #5a3e2b;
+            color: #fff;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 移动端适配（与心流一致） */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            .pain-grid, .formula-grid, .test-grid, .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .scene-container {
+                grid-template-columns: 1fr;
+            }
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+            .spec-img {
+                height: 200px;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .nav-content {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏：全系列互相跳转（加在<body>最顶部） -->
+   <!-- 顶部导航模块 -->
+<nav class="nav-bar">
+    <div class="container nav-content">
+        <a href="./" class="nav-logo">
+            <!-- 如果根目录有logo图片，请替换src为实际路径，如“/logo.png” -->
+            <img src="../images/huanjing.png" alt="明治制药 Logo" class="logo-icon" style="height: 24px; vertical-align: middle; margin-right: 8px;">
+            明治制药 - [缓静] <!-- 请替换[系列名称] -->
+        </a>
+        <div class="nav-menu">
+            <a href="./">返回产品总览</a> <!-- 指向根目录总览页 -->
+            <a href="../xinliu/">心流系列</a>
+            <a href="../huanjing/">缓静系列</a>
+            <a href="../zhenfeng/">镇风系列</a>
+            <a href="../jizhihuoli/">极致活力</a>
+            <a href="../yanxue/">艳雪系列</a>
+        </div>
+    </div>
+</nav>
+<style>
+    /* 导航栏样式 */
+    .nav-bar {
+        background-color: #5a3e2b;
+        padding: 12px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-bar .container.nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .nav-logo {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+    .nav-logo:hover {
+        opacity: 0.9;
+    }
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-menu a:hover {
+        background-color: #d9b38c;
+        transform: translateY(-2px);
+    }
+    /* 响应式适配 */
+    @media (max-width: 768px) {
+        .nav-bar .container.nav-content {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .nav-menu {
+            justify-content: center;
+            gap: 10px;
+        }
+        .nav-menu a {
+            padding: 5px 10px;
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+    <!-- 1. 首屏Banner区（1张主视觉图） -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="tag">机能性表示食品</span>
+            <h1>明治制药 缓静</h1>
+            <p>抑制餐后血糖上升 · 10000mg NMN抗衰 · 80年制药匠心守护代谢健康</p>
+            <a href="#formula" class="hero-btn">了解核心配方</a>
+        </div>
+    </section>
+
+    <!-- 2. 痛点共鸣区（3张场景/数据图） -->
+    <section class="pain-section">
+        <div class="container">
+            <h2 class="section-title">16.7%概率受困！餐后高血糖的隐形风险</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-img pain-img1">高血糖隐患示意图</div>
+                    <h3 class="pain-title">高血糖隐患</h3>
+                    <p class="pain-desc">日本约6人中有1人是糖尿病/高危人群，餐后高血糖易被忽视，长期可引发肾病、视网膜病变等并发症</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-img pain-img2">饮食困境示意图</div>
+                    <h3 class="pain-title">日常饮食困境</h3>
+                    <p class="pain-desc">白米、面包、蛋糕等精制碳水摄入多，控制饮食难以坚持，餐后血糖易飙升</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-img pain-img3">健康寿命差距数据图</div>
+                    <h3 class="pain-title">健康寿命差距</h3>
+                    <p class="pain-desc">血糖问题直接影响健康寿命，男性健康寿命短9年，女性短12年，控糖刻不容缓</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 核心配方区（3张成分图+1张产品图） -->
+    <section class="formula-section" id="formula">
+        <div class="container">
+            <h2 class="section-title">三重黄金配方，控糖+抗衰双效协同</h2>
+            <div class="product-main-img">缓静产品实物图</div>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <div class="formula-img formula-img1">桑叶亚胺基糖示意图</div>
+                    <h3 class="formula-title">桑叶亚胺基糖（DNJ）</h3>
+                    <p class="formula-desc"><span class="formula-highlight">机能性表示食品认证</span>，抑制糖分吸收，阻断餐后血糖上升，从源头控制血糖波动</p>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-img formula-img2">黑醋干燥提取物图</div>
+                    <h3 class="formula-title">黑醋干燥提取物</h3>
+                    <p class="formula-desc">含5ALA活性成分，促进糖分燃烧转化为能量，减少糖分堆积，辅助稳定血糖</p>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-img formula-img3">NMN分子结构图</div>
+                    <h3 class="formula-title">NMN（10000mg）</h3>
+                    <p class="formula-desc"><span class="formula-highlight">10000mg高含量</span>，激活长寿基因，延缓代谢器官衰老，控糖+抗衰双效</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 科学试验背书区（4张试验图+1张认证图） -->
+    <section class="test-section">
+        <div class="container">
+            <h2 class="section-title">人体/动物试验验证，控糖功效有迹可循</h2>
+            <div class="test-grid">
+                <div class="test-card">
+                    <div class="test-img test-img1">餐后血糖抑制曲线图</div>
+                    <h3 class="test-title">桑叶提取物控糖试验</h3>
+                    <p class="test-conclusion">服用桑叶提取物后，餐后1小时血糖值较对照组降低20%，2小时恢复至正常水平</p>
+                </div>
+                <div class="test-card">
+                    <div class="test-img test-img2">黑醋提取物控糖试验图</div>
+                    <h3 class="test-title">黑醋提取物控糖试验</h3>
+                    <p class="test-conclusion">黑醋组餐后血糖峰值较对照组降低15%，血糖下降速度提升30%</p>
+                </div>
+                <div class="test-card">
+                    <div class="test-img test-img3">糖尿病预防动物试验图</div>
+                    <h3 class="test-title">糖尿病预防动物试验</h3>
+                    <p class="test-conclusion">持续摄入桑叶提取物的实验鼠，即使高糖饮食，血糖仍维持在正常范围，未出现升高</p>
+                </div>
+                <div class="test-card">
+                    <div class="test-img test-img4"></div>
+                    <h3 class="test-title">5-ALA改善血糖水平</h3>
+                    <p class="test-conclusion">含有ALA的健康食品可以改善临界糖尿病患者的血糖水平。并且、使用改善糖尿病药物的 2 型糖尿病患者使用ALA的安全性、以及HbA1C与空腹时・用餐后的血糖值改善都得到了确认。
+
+        </div>
+    </section>
+
+    <!-- 5. 产品细节区（3张细节图） -->
+    <section class="detail-section">
+        <div class="container">
+            <h2 class="section-title">制药级品质，从原料到成品的严苛把控</h2>
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <div class="detail-img detail-img1">高纯度高品质的1000mg</div>
+                    <h3 class="detail-title">高纯度高品质的10000mg</h3>
+                    <p class="detail-desc">每粒含有可以保持健康的含量、111㎎配方。
+                        每日可以摄取333㎎</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-img detail-img2">原料实拍图</div>
+                    <h3 class="detail-title">高纯度原料</h3>
+                    <p class="detail-desc">99.5%高纯度桑叶提取物+黑醋提取物，无添加香精、色素，制药级原料标准</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-img detail-img3">工厂车间示意图</div>
+                    <h3 class="detail-title">医药品级生产</h3>
+                    <p class="detail-desc">日本富山医药品级工厂生产，符合GMP严格认证，生产环境万级无尘</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 用户场景+媒体背书区（3张场景图+2张媒体图） -->
+    <section class="scene-section">
+        <div class="container">
+            <h2 class="section-title">备受认可的控糖抗衰选择</h2>
+            <div class="scene-container">
+                <div class="scene-grid">
+                    <div class="scene-card">
+                        <div class="scene-img scene-img1">职场应酬用餐场景</div>
+                        <p class="scene-desc">应酬无惧碳水，餐后血糖不飙升</p>
+                    </div>
+                    <div class="scene-card">
+                        <div class="scene-img scene-img2">中老年居家用餐场景</div>
+                        <p class="scene-desc">日常控糖养护，守护代谢健康</p>
+                    </div>
+                    <div class="scene-card">
+                        <div class="scene-img scene-img3">碳水爱好者服用场景</div>
+                        <p class="scene-desc">爱吃碳水不忌口，控糖抗衰两不误</p>
+                    </div>
+                </div>
+                <div class="media-grid">
+                    <div class="media-card">
+                        <div class="media-img media-img1">羽鸟慎一早间秀报道截图</div>
+                        <h3 class="media-title">羽鸟慎一早间秀专题报道</h3>
+                    </div>
+                    <div class="media-card">
+                        <div class="media-img media-img2">长嶋一茂未来学院报道截图</div>
+                        <h3 class="media-title">长嶋一茂未来学院推荐</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 产品信息+转化区（1张规格对比图） -->
+    <section class="info-section">
+        <div class="container">
+            <h2 class="section-title">产品基础信息，科学服用更有效</h2>
+            <div class="info-container">
+                <ul class="info-list">
+                    <li>商品名：<span>明治制药 缓静</span></li>
+                    <li>内容量：<span>33.48g（372mg×90粒）</span></li>
+                    <li>每日服用量：<span>3粒，餐前15分钟温水送服</span></li>
+                    <li>机能性成分含量：<span>2.5mg/每日剂量（亚胺基糖）</span></li>
+                    <li>NMN含量：<span>333mg/每日剂量（总计10000mg）</span></li>
+                    <li>保质期：<span>3年</span></li>
+                    <li>储存方式：<span>密封，阴凉干燥处保存</span></li>
+                    <li>适用人群：<span>40-70岁关注血糖/抗衰人群</span></li>
+                </ul>
+                <div class="spec-img">每日成分含量规格对比图</div>
+            </div>
+            <a href="#" class="convert-btn">立即咨询</a>
+        </div>
+    </section>
+
+    <!-- 底部区 -->
+    <footer class="footer">
+        <div class="container">
+            <p>明治制药株式会社 | 机能性表示食品 | GMP认证</p>
+            <p>本产品不能替代药物治疗 | 孕妇/糖尿病患者请遵医嘱服用</p>
+            <p>©2025 明治制药 版权所有</p>
+        </div>
+    </footer>
+</body>
+</html>
